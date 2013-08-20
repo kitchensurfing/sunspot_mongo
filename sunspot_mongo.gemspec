@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "sunspot/mongo/version"
 
 Gem::Specification.new do |s|
-  s.name        = "sunspot_mongo"
+  s.name        = "sunspot_mongo-toothrot"
   s.version     = Sunspot::Mongo::VERSION
   s.authors     = ["Brian Alexander", "Derek Harmel"]
   s.email       = ["balexand@gmail.com", "dgharmel@gmail.com"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Sunspot support for Mongo Mapper and Mongoid.}
   s.description = %q{Sunspot support for Mongo Mapper and Mongoid.}
 
-  s.rubyforge_project = "sunspot_mongo"
+  s.rubyforge_project = "sunspot_mongo-toothrot"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
