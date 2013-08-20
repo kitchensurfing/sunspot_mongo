@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard", [">= 0"]
   s.add_development_dependency "guard-rspec", [">= 0"]
   s.add_development_dependency "sunspot_solr", [">= 0"]
+  s.add_development_dependency "pry-rails", [">= 0"]
 end

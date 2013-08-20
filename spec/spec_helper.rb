@@ -7,14 +7,15 @@ require "mongoid"
 # Load support files
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb' ))].each {|f| require f}
 
-# Load shared examples
-require "shared_examples"
-
 def setup_servers_and_connections
   FileUtils.mkdir_p '/tmp/sunspot_mongo_test/'
 
-  @solr_pid  = fork { `sunspot-solr start --log-file=/tmp/sunspot_mongo/solr.log --log-level=INFO --port=8900` }
-  sleep 2
+  begin
+    socket = TCPSocket.new 'localhost', 8900
+  rescue Errno::ECONNREFUSED
+    @solr_pid = fork { `sunspot-solr start --log-file=/tmp/sunspot_mongo/solr.log --log-level=INFO --port=8900` }
+    sleep 5
+  end
 
   Mongoid::Config.connect_to 'sunspot_mongo_test'
 
