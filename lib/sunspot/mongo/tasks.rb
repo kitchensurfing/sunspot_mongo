@@ -13,7 +13,7 @@ namespace :sunspot do
 
       sunspot_models.each do |model|
         puts "reindexing #{model}"
-        model.batch_size(100).no_timeout.all.each(&:index)
+        model.no_timeout.all.each(&:index)
         Sunspot.commit
       end
     end
