@@ -2,7 +2,6 @@ namespace :sunspot do
   namespace :mongo do
     desc "Reindex all models that include Sunspot::Mongo and are located in your application's models directory."
     task :reindex, [:models] => :environment do |t, args|
-      Mongoid.identity_map_enabled = false
       sunspot_models = if args[:models]
          args[:models].split('+').map{|m| m.constantize}
       else
